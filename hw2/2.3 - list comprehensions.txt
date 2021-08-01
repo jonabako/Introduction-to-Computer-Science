@@ -1,0 +1,10 @@
+-- a) For the given value 210:
+[x | x<-[1..210], 210 `mod` x==0]
+
+-- For any given value to n: 
+-- (i.e. n = assigned integer by user, and then the code below)
+[x | x<-[1..n], n `mod` x==0]
+
+-- b) For a, b as sides and c as hypotenuse of the triangle:
+-- (we set one side bigger than the other, a<b, to avoid swaps)
+[(a, b, c) | a<-[1..100], b<-[1..100], c<-[1..100], a<b, a^2+b^2==c^2]
