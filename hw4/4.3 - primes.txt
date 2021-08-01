@@ -1,0 +1,15 @@
+isPrime :: Integer -> Bool
+isPrime n = null [ x | x <- [2..n `div` 2], n `mod` x == 0]
+
+primes :: Integer -> Integer -> [Integer]
+primes a b = filter isPrime [a..b]
+
+gappies :: Integer -> Integer -> Integer -> [(Integer,Integer)]
+gappies g a b = [(x, x+g) | x <- [a..b], x > 1, (x+g)<b, isPrime x, isPrime(x+g)]
+
+twins :: Integer -> Integer -> [(Integer, Integer)]
+twins = gappies 2
+cousins :: Integer -> Integer -> [(Integer, Integer)]
+cousins = gappies 4
+sexies :: Integer -> Integer -> [(Integer, Integer)]
+sexies = gappies 6
