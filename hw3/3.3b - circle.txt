@@ -1,0 +1,5 @@
+rotate :: (Eq t, Num t) => t -> [a] -> [a]
+rotate 0 str = str
+rotate n str = rotate (n-1) ((drop 1 str) ++ (take 1 str))
+circle :: [a] -> [[a]]
+circle str = [((rotate i str)) | i <- [0..(length str - 1)]]
